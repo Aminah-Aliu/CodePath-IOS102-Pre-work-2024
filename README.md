@@ -3,13 +3,11 @@
 
 ## App Description
 
-TODO:// Add app description
+This app allows students to introduce themselves. Users input their first and last name, school, age, grade level, and number of puets, and these details are printed in an alert box.
 
 ## App Walk-though
 
-TODO:// Add the URL to your animated app walk-though gif in the image tag below. Make sure the gif actually renders and animates when viewing this README. (☝️ Remove this paragraph after after adding gif). LICEcap is a great tool for recording and you can simply upload the gif to GitHub and provide the path name in place of URL as shown below.
-
-TODO:// In the Features section below, add an x between the -[ ] like this - [x] for any features you complete. (☝️ Remove this paragraph after after checking off user stories)
+https://jmp.sh/s/5LHQmULFO99C5Fgy4n9G
 
 ## Required Features
 
@@ -22,6 +20,6 @@ TODO:// In the Features section below, add an x between the -[ ] like this - [x]
 
 ## Optional Features
 
-- [] 1. User can tap a button to change the color of the background view
-- [] 2. User can select on additional buttons that provide more info about the user. Example: more textfields, a different alert box, etc.
-- [] 3. Any stylistic changes that are not default options (Comment this here)
+- [x] 1. User can tap a button to change the color of the background view (I implemented Dark Mode, available with usage of iOS 13 or higher)
+- [x] 2. User can select on additional buttons that provide more info about the user. Example: more textfields, a different alert box, etc. (I allow users to input their age)
+- [x] 3. Any stylistic changes that are not default options (I changed the default font to Times New Roman)

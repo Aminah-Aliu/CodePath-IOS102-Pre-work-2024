@@ -13,18 +13,41 @@ class ViewController: UIViewController {
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var schoolNameTextField: UITextField!
     
+    @IBOutlet weak var ageLabel: UILabel!
+    
+    
     @IBOutlet weak var yearSegmentedControl: UISegmentedControl!
     
     @IBOutlet weak var numberOfPetsLabel: UILabel!
     @IBOutlet weak var morePetsStepper: UIStepper!
     
+    @IBOutlet weak var changeAgeStepper: UIStepper!
     @IBOutlet weak var morePetsSwitch: UISwitch!
     
+    @IBAction func DarkModeEnabled(_ sender: UISwitch) {
+        if #available(iOS 13.0, *) {
+            let appDelegate = UIApplication.shared.windows.first
+            if sender.isOn {
+                appDelegate?.overrideUserInterfaceStyle = .dark
+                return
+            }
+            appDelegate?.overrideUserInterfaceStyle = .light
+            return
+        }
+        else {
+            // nothing will be done
+            print("incompatible iOS version. Dark Mode is not available.")
+        }
+    }
     
-    @IBAction func stepperDidChange(_ sender: UIStepper) {
+    @IBAction func petStepperDidChange(_ sender: UIStepper) {
         numberOfPetsLabel.text = "\(Int(sender.value))"
     }
     
+ 
+    @IBAction func ageStepperDidChange(_ sender: UIStepper) {
+        ageLabel.text = "\(Int(sender.value))"
+    }
     
     @IBAction func introduceSelfDidTapped(_ sender: UIButton) {
         // Lets us choose the title we have selected from the segmented control
@@ -32,7 +55,7 @@ class ViewController: UIViewController {
         let year = yearSegmentedControl.titleForSegment(at: yearSegmentedControl.selectedSegmentIndex)
 
         // Creating a constant of type string that holds an introduction. The introduction receives the values from the outlet connections.
-        let introduction = "My name is \(firstNameTextField.text!) \(lastNameTextField.text!) and I attend \(schoolNameTextField.text!). I am currently in my \(year!) year and I own \(numberOfPetsLabel.text!) dogs. It is \(morePetsSwitch.isOn) that I want more pets."
+        let introduction = "My name is \(firstNameTextField.text!) \(lastNameTextField.text!) and I am \(ageLabel.text!) years old. I attend \(schoolNameTextField.text!). I am currently in my \(year!) year and I own \(numberOfPetsLabel.text!) dogs. It is \(morePetsSwitch.isOn) that I want more pets."
 
         // Creates the alert where we pass in our message, which our introduction.
                 let alertController = UIAlertController(title: "My Introduction", message: introduction, preferredStyle: .alert)
